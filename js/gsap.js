@@ -66,7 +66,7 @@ method
     // left: "25%",
     top: "87%",
     scale: 1,
-    duration: 1.5,
+    duration: 2,
     opacity: 0.5,
     ease: "back.out(0.5)"
 })
@@ -101,7 +101,7 @@ cards.forEach((card, index) => {
         y: 30,
         opacity: 0,
         scale: 0.98,
-        duration: 2,
+        duration: 1.5,
         stagger: 0.5
     })
 
@@ -148,7 +148,7 @@ ScrollTrigger.create({
     animation: method,
     trigger: ".section01",
     start: 'top top',
-    end: `+=${1000 + 2000 * num_cards}`,
+    end: `+=${1000 + 2100 * num_cards}`,
     scrub: 2,
     pin: true,
     anticipatePin: 1,
@@ -192,9 +192,9 @@ info
     duration: 1,
     stagger: 0.2
 })
-// .to({}, {
-//     duration: 0.2
-// })
+.to({}, {
+    duration: 3
+})
 // .to(".section02 div h2, .section02 div h3, .section02 div p", {
 //     opacity: 0,
 //     y: -10,
@@ -208,7 +208,7 @@ ScrollTrigger.create({
     animation: info,
     trigger: ".section02",
     start: 'top top',
-    end: '+=1200',
+    end: '+=950',
     scrub: 3,
     pin: true,
     anticipatePin: 1,
