@@ -6,23 +6,23 @@ gsap.registerPlugin(ScrollTrigger);
 const intro = gsap.timeline();
 
 intro
-.from('.section0 div', {
+.from('.section00 div', {
     opacity: 0,
     y: 20,
     duration: 1
 })
 .to({}, { duration: 0.2 })
 
-.to('.section0 div', {
+.to('.section00 div', {
     opacity: 0,
     y: -10,
     duration: 1.8,
 })
-.to({}, { duration: 0.8 })
+.to({}, { duration: 0.7 })
 
 ScrollTrigger.create({
     animation: intro,
-    trigger: ".section0",
+    trigger: ".section00",
     start: 'top top',
     end: '+=2000',
     scrub: 3,
@@ -38,15 +38,15 @@ ScrollTrigger.create({
 const mm = gsap.matchMedia();
 const method = gsap.timeline();
 
-const cards = document.querySelectorAll(".section1 .card");
+const cards = document.querySelectorAll(".section01 .card");
 
 let num_cards = cards.length;
 
-gsap.set(".section1 .title", {
+gsap.set(".section01 .title", {
     opacity: 0,
     scale: 2
 });
-// gsap.set(".section1 .card", {
+// gsap.set(".section01 .card", {
 //     xPercent: -50,
 //     yPercent: -50,
 // });
@@ -55,14 +55,14 @@ gsap.set(".section1 .title", {
 method
 .to({}, { duration: 0.2 })
 // 사업 분야 글자가 나타남
-.to(".section1 .title", {
+.to(".section01 .title", {
     opacity: 1,
     duration: 1
 })
 
 .to({}, { duration: 0.2 })
 // 사업 분야 글자가 이동
-.to(".section1 .title", {
+.to(".section01 .title", {
     // left: "25%",
     top: "87%",
     scale: 1,
@@ -74,7 +74,7 @@ method
 .to({}, { duration: 0.2 })
 
 // 전체 박스 생김
-.from(".section1 .card1",
+.from(".section01 .card1",
     {
         opacity: 0,
         duration: 0
@@ -82,7 +82,7 @@ method
 
 .to({}, { duration: 0.2 })
 // 첫 번째 사진이 먼저 등장
-.from(".section1 .card1 .reveal2", {
+.from(".section01 .card1 .reveal2", {
     xPercent: 100,
     opacity: 0,
     scale: 0.95,
@@ -135,18 +135,18 @@ cards.forEach((card, index) => {
 
 // 동시에 글자도 사라짐
 method
-.to(".section1 .title", {
+.to(".section01 .title", {
     scale: 0.9,
     duration: 0.5,
     opacity: 0
 }, `changecard${num_cards-1}`)
 
-.to({}, { duration: 0.8 });
+.to({}, { duration: 0.7 });
 
 
 ScrollTrigger.create({
     animation: method,
-    trigger: ".section1",
+    trigger: ".section01",
     start: 'top top',
     end: `+=${1000 + 2000 * num_cards}`,
     scrub: 2,
@@ -162,7 +162,7 @@ ScrollTrigger.create({
 
 //     ScrollTrigger.create({
 //         animation: method,
-//         trigger: ".section1",
+//         trigger: ".section01",
 //         start: 'top top',
 //         end: '+=8500',
 //         scrub: 2,
@@ -186,7 +186,7 @@ ScrollTrigger.create({
 const info = gsap.timeline();
 
 info
-.from(".section2 div h2, .section2 div h3, .section2 div p", {
+.from(".section02 div h2, .section02 div h3, .section02 div p", {
     opacity: 0,
     y: 20,
     duration: 1,
@@ -195,7 +195,7 @@ info
 // .to({}, {
 //     duration: 0.2
 // })
-// .to(".section2 div h2, .section2 div h3, .section2 div p", {
+// .to(".section02 div h2, .section02 div h3, .section02 div p", {
 //     opacity: 0,
 //     y: -10,
 //     duration: 1.8
@@ -206,7 +206,7 @@ info
 
 ScrollTrigger.create({
     animation: info,
-    trigger: ".section2",
+    trigger: ".section02",
     start: 'top top',
     end: '+=1200',
     scrub: 3,

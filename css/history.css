@@ -1,0 +1,121 @@
+:root {
+    --primary-color: rgb(0, 166, 219);
+    --light-gray: rgb(121, 127, 133);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+}
+
+/* 회사 연혁 글자 */
+.section10 div {
+    height: 100vh;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.5s ease, transform 3s ease;
+}
+
+.section10 div.show {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+.section10 div h2 {
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+/* 본격적으로 연혁이 나오는 부분 */
+.section11 {
+    position: relative;
+    width: 100%;
+    /* height: 5000px; */
+    /* border: 3px solid red; */
+    /* padding: 1rem; */
+}
+
+/* 길쭉한 세로 라인 */
+.section11 .hider {
+    position: absolute;
+    top: 0;
+    /* 세로 라인이 존재하는 위치 */
+    left: calc(
+    (100% - min(90%, 600px)) / 2
+    + (min(90%, 600px) - 2.5rem) / 4
+    + 0.75rem
+    );
+    height: 100%;
+    overflow: hidden;
+    /* border: 2px solid rgb(157, 45, 142); */
+}
+
+
+.section11 .hider .line {
+    display: block;
+    width: 2px;
+    height: calc(100% - 40px);
+
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 166, 219, 0),
+        var(--primary-color) 2%, 
+        var(--primary-color) 40%, 
+        rgba(0, 166, 219, 0)
+    );
+}
+
+.section11 .years-box {
+    width: min(90%, 600px);
+    margin: 0 auto;
+    /* outline: 2px solid blueviolet; */
+    /* 맨 위에 여유 조금 주기 */
+    padding-top: 40px;
+    /* 맨 아래 여유 조금 주기 */
+    padding-bottom: 300px;
+}
+
+.section11 .years-box .oneyear {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
+    /* border: 2px solid blue; */
+    margin-bottom: 2rem
+}
+
+.oneyear > h2 {
+    flex:1;
+    color: var(--primary-color);
+    /* margin-top: 0.5rem; */
+    font-weight: 750;
+    font-size: 1.7rem;
+    text-align: right;
+    /* border: 2px solid green; */
+}
+
+.oneyear > .explanation {
+    flex: 3;
+    color: var(--light-gray);
+    /* border: 2px solid blue; */
+}
+
+.oneyear > .explanation > p {
+    margin-bottom: 0.5rem;
+}

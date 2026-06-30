@@ -69,7 +69,7 @@ header.hide {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 50px;
 }
 
 nav ul li a {
@@ -183,8 +183,8 @@ nav ul li a:hover::after {
     z-index: 1;
 }
 
-/* 섹션 0 */
-.section0 div {
+/* 섹션 00 */
+.section00 div {
     height: 100vh;
     max-width: 900px;
     margin: 0 auto;
@@ -196,18 +196,18 @@ nav ul li a:hover::after {
     align-items: center;
 }
 
-.section0 div h2 {
+.section00 div h2 {
     margin: 1rem auto;
     text-align: center;
     font-size: 1.7rem;
 }
 
-.section0 div p {
+.section00 div p {
     text-align: center;
 }
 
 /* 섹션 1 */
-.section1 {
+.section01 {
     position: relative;
     height: 100vh;
     width: 100%;
@@ -219,7 +219,7 @@ nav ul li a:hover::after {
     gap: 1rem; */
 }
 
-.section1 .title {
+.section01 .title {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -234,20 +234,20 @@ nav ul li a:hover::after {
     /* border: 1px solid black; */
 }
 
-.section1 .title h1 {
+.section01 .title h1 {
     text-align: center;
     margin-bottom: 1rem;
     color: var(--light-gray);
     font-size: 1.5rem;
 }
 
-.section1 .title h2 {
+.section01 .title h2 {
     text-align: center;
     color: var(--primary-color);
     font-weight: 600;
 }
 
-.section1 .card {
+.section01 .card {
     /* border: 2px solid black; */
     position: absolute;
     top: 50%;
@@ -261,26 +261,26 @@ nav ul li a:hover::after {
     align-items: center;
 }
 
-.section1 .card .words {
+.section01 .card .words {
     width: min(90%, 1200px);
     margin-left: auto;
     display: flex;
     flex-direction: column;
 }
 
-.section1 .card h3 {
+.section01 .card h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
-.section1 .card p {
+.section01 .card p {
     color: var(--light-gray);
     margin-bottom: 0.5rem;
     /* border-top: 1px solid rgba(121, 127, 133, 0.25); */
 }
 
-.section1 .card .works-picture-box {
+.section01 .card .works-picture-box {
     overflow: hidden;
     /* border: 1px solid red; */
     width: min(90%, 1200px);
@@ -289,7 +289,7 @@ nav ul li a:hover::after {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.section1 .card .works-picture-box .works-picture {
+.section01 .card .works-picture-box .works-picture {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -297,7 +297,7 @@ nav ul li a:hover::after {
 }
 
 /* 섹션 2 */
-.section2 div {
+.section02 div {
     height: 100vh;
     max-width: 900px;
     margin: 0 auto;
@@ -308,19 +308,19 @@ nav ul li a:hover::after {
     align-items: center;
 }
 
-.section2 div h2 {
+.section02 div h2 {
     margin: 1rem auto;
     text-align: center;
     font-size: 1.7rem;
 }
 
-.section2 div h3 {
+.section02 div h3 {
     margin: 1.5rem 0 0.5rem;
     text-align: center;
     font-size: 1.3rem;
 }
 
-.section2 div p {
+.section02 div p {
     text-align: center;
 }
 
