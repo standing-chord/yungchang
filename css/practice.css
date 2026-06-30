@@ -260,10 +260,6 @@ nav ul li a:hover::after {
     justify-content: center;
     align-items: center;
 }
-.section1 .card img {
-    height: 40px;
-    margin: 0.5rem auto;
-}
 
 .section1 .card .words {
     width: min(90%, 1200px);
@@ -289,7 +285,7 @@ nav ul li a:hover::after {
     /* border: 1px solid red; */
     width: min(90%, 1200px);
     margin-left: auto;
-    height: 250px;
+    height: 350px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 

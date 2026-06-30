@@ -18,7 +18,7 @@ intro
     y: -10,
     duration: 1.8,
 })
-.to({}, { duration: 0.7 })
+.to({}, { duration: 0.8 })
 
 ScrollTrigger.create({
     animation: intro,
@@ -65,9 +65,9 @@ method
 .to(".section1 .title", {
     // left: "25%",
     top: "87%",
-    yPercent: -100,
     scale: 1,
     duration: 1.5,
+    opacity: 0.5,
     ease: "back.out(0.5)"
 })
 
@@ -141,7 +141,7 @@ method
     opacity: 0
 }, `changecard${num_cards-1}`)
 
-.to({}, { duration: 0.7 });
+.to({}, { duration: 0.8 });
 
 
 ScrollTrigger.create({
