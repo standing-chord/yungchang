@@ -27,7 +27,7 @@ header {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(90vw, 1200px);
+    width: min(90%, 1200px);
     height: 80px;
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(8px);
@@ -212,6 +212,7 @@ nav ul li a:hover::after {
     height: 100vh;
     width: 100%;
     margin: 0 auto;
+    overflow: hidden;
     /* border: 2px solid yellow; */
 
     /* display: flex;
@@ -223,6 +224,7 @@ nav ul li a:hover::after {
     top: 50%;
     left: 50%;
     width: 90%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     flex-direction: column;
@@ -251,6 +253,7 @@ nav ul li a:hover::after {
     top: 50%;
     left: 50%;
     width: 100%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     flex-direction: column;

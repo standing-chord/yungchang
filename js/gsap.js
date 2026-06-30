@@ -16,7 +16,7 @@ intro
 .to('.section0 div', {
     opacity: 0,
     y: -10,
-    duration: 1.8
+    duration: 1.8,
 })
 .to({}, { duration: 0.7 })
 
@@ -34,20 +34,7 @@ ScrollTrigger.create({
 
 
 
-// 사업 분야 애니메이션
-gsap.set(".section1 .title", {
-    xPercent: -50,
-    yPercent: -50,
-    opacity: 0,
-    scale: 2
-});
-gsap.set(".section1 .card", {
-    xPercent: -50,
-    yPercent: -50,
-    // opacity: 0
-});
-
-
+// 2. 사업 분야 애니메이션
 const mm = gsap.matchMedia();
 const method = gsap.timeline();
 
@@ -55,7 +42,15 @@ const cards = document.querySelectorAll(".section1 .card");
 
 let num_cards = cards.length;
 
-console.log(cards.length);
+gsap.set(".section1 .title", {
+    opacity: 0,
+    scale: 2
+});
+// gsap.set(".section1 .card", {
+//     xPercent: -50,
+//     yPercent: -50,
+// });
+
 
 method
 .to({}, { duration: 0.2 })
@@ -72,7 +67,8 @@ method
     top: "87%",
     yPercent: -100,
     scale: 1,
-    duration: 1.5
+    duration: 1.5,
+    ease: "back.out(0.5)"
 })
 
 .to({}, { duration: 0.2 })
@@ -90,7 +86,8 @@ method
     xPercent: 100,
     opacity: 0,
     scale: 0.95,
-    duration: 1.2
+    duration: 1.2,
+    ease: "power1.out"
 });
 
 //반복문으로 구성
@@ -124,12 +121,13 @@ cards.forEach((card, index) => {
         opacity: 0,
         duration: 0
     }, `changecard${index}`)
-    // 다음 사진이 먼저 등장
+    // 다음 사진이 등장
     .from(next_card.querySelectorAll(".reveal2"), {
         xPercent: 100,
         opacity: 0,
         scale: 0.95,
-        duration: 1.2
+        duration: 1.2,
+        ease: "power1.out"
     }, `changecard${index}`);
 
 });
