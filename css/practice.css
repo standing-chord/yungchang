@@ -336,15 +336,9 @@ footer {
 }
 
 /* 위로 길쭉하게 보는 경우 */
-@media (max-width: 768px) {
-    .section1 .title {
-        width: 90%;
-    }
-    .section1 .cards-container {
-        margin-left: 0;
-        margin-top: 50%;
-    }
-}
+/* @media (max-width: 768px) {
+
+} */
 
 
 
