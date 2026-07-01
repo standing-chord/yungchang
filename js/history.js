@@ -1,27 +1,41 @@
-// 페이지 로드 시 회사 연혁 글자 나타남
+gsap.registerPlugin(ScrollTrigger);
+
 const historyLetter = document.querySelector('.section10 div');
+
 if (historyLetter) {
-    historyLetter.classList.add('show');
+    // 처음 로딩 애니메이션 회사 연혁 글자 나타남
+    gsap.fromTo(historyLetter,
+        {
+            opacity: 0,
+            y: 10
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 2,
+            ease: 'power1.inOut',
+
+            onComplete: () => {
+                // 로딩 애니메이션 끝난 뒤 스크롤 애니메이션 등록
+                gsap.to(historyLetter, {
+                    opacity: 0,
+                    ease: 'power1.out',
+                    scrollTrigger: {
+                        trigger: '.section11',
+                        start: 'top 95%',
+                        end: 'top 50%',
+                        scrub: 2,
+                        // markers: true
+                    }
+                });
+            }
+        }
+    );
 }
 
-// 헤더가 나왔다 들어갔다 만들기
-let lastScrollY = window.scrollY;
-const header = document.querySelector('header');
 
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        header.classList.add('hide');
-    } else {
-        header.classList.remove('hide');
-    }
-
-    lastScrollY = currentScrollY;
-});
-
-//아래 연혁 부분 애니메이션 만들기
-gsap.registerPlugin(ScrollTrigger);
+//아래 부분 애니메이션 만들기
 
 // 년도 숫자에 대한 애니메이션
 const years = document.querySelectorAll('.oneyear h2');
@@ -37,8 +51,7 @@ years.forEach((oneyear) => {
             trigger: oneyear,
             start: 'top bottom',
             end: 'bottom 70%',
-            toggleActions: 'play none reverse none',
-            scrub: 1,
+            scrub: 2,
             // markers: true,
         }
     });
@@ -58,15 +71,14 @@ years_words.forEach((oneyear) => {
             trigger: oneyear,
             start: 'top 90%',
             end: 'bottom 60%',
-            toggleActions: 'play none reverse none',
-            scrub: 1,
+            scrub: 2,
             // markers: true,
         }
     });
 });
 
 // 세로 선에 대한 애니메이션
-const hider = document.querySelectorAll('.section11 .hider');
+const hider = document.querySelector('.section11 .hider');
 
 gsap.from(hider, {
     height: 0,
@@ -76,8 +88,7 @@ gsap.from(hider, {
         trigger: '.section11',
         start: 'top 50%',
         end: 'bottom bottom',
-        toggleActions: 'play none reverse none',
-        scrub: 1,
+        scrub: 2,
         // markers: true
     }
 });

@@ -1,21 +1,34 @@
-// 헤더가 나왔다 들어갔다 만들기
-// 동시에 모바일 메뉴가 나왔다 들어갔다 만들기
-let lastScrollY = window.scrollY;
-const header = document.querySelector('header');
-const mobileNav = document.querySelector('.mobile-nav');
+gsap.registerPlugin(ScrollTrigger);
 
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
+const LocationLetter = document.querySelector('.section20 div');
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        header.classList.add('hide');
-        mobileNav.classList.add('hide');
-    } else {
-        header.classList.remove('hide');
-        mobileNav.classList.remove('hide');
-    }
+if (LocationLetter) {
+    // 처음 로딩 애니메이션 화사 위치 글자 나타남
+    gsap.fromTo(LocationLetter,
+        {
+            opacity: 0,
+            y: 10
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 2,
+            ease: 'power1.inOut',
 
-    lastScrollY = currentScrollY;
-});
-
-
+            onComplete: () => {
+                // 로딩 애니메이션 끝난 뒤 스크롤 애니메이션 등록
+                gsap.to(LocationLetter, {
+                    opacity: 0,
+                    ease: 'power1.out',
+                    scrollTrigger: {
+                        trigger: '.section21',
+                        start: 'top 95%',
+                        end: 'top 50%',
+                        scrub: 2,
+                        // markers: true
+                    }
+                });
+            }
+        }
+    );
+}

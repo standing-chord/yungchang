@@ -28,78 +28,224 @@ if (slides.length > 1 && slides.length == slideTexts.length) {
     setInterval(nextSide, 5000);
 }
 
-// 헤더가 나왔다 들어갔다 만들기
-let lastScrollY = window.scrollY;
-const header = document.querySelector('header');
 
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
+//gsap으로 구현하는 부분
+gsap.registerPlugin(ScrollTrigger);
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        header.classList.add('hide');
-    } else {
-        header.classList.remove('hide');
-    }
 
-    lastScrollY = currentScrollY;
+
+// 인트로 부분 모션
+const intro = gsap.timeline();
+
+intro
+.from('.section00 div', {
+    opacity: 0,
+    y: 20,
+    duration: 1
+})
+.to({}, { duration: 0.2 })
+
+.to('.section00 div', {
+    opacity: 0,
+    y: -10,
+    duration: 1.8,
+})
+.to({}, { duration: 0.7 })
+
+ScrollTrigger.create({
+    animation: intro,
+    trigger: ".section00",
+    start: 'top top',
+    end: '+=2000',
+    scrub: 2,
+    pin: true,
+    anticipatePin: 1,
+    // markers: true
 });
 
-// // ===== 스크롤 기반 애니메이션: 목표/수단 섹션 =====
-// function initManagementScrollAnimation() {
-//     const managementContainer = document.querySelector('.management-container');
-//     if (!managementContainer) return;
 
-//     const goalBox = document.querySelector('.goal-box-scroll');
-//     const cardItems = document.querySelectorAll('.card-item');
 
-//     if (!goalBox || cardItems.length === 0) return;
 
-//     const containerTop = managementContainer.offsetTop;
-//     const containerHeight = managementContainer.offsetHeight;
+// 2. 사업 분야 애니메이션
+const mm = gsap.matchMedia();
+const method = gsap.timeline();
 
-//     function updateAnimations() {
-//         const scrollY = window.scrollY;
-//         const relativeScroll = scrollY - containerTop;
-//         const progress = relativeScroll / (containerHeight - window.innerHeight);
+const cards = document.querySelectorAll(".section01 .card");
 
-//         // 목표 박스 페이드 아웃 (0.15 ~ 0.40)
-//         let goalOpacity = 1;
-//         if (progress >= 0.15 && progress <= 0.40) {
-//             goalOpacity = 1 - ((progress - 0.15) / 0.25);
-//         } else if (progress > 0.40) {
-//             goalOpacity = 0;
-//         }
-//         goalBox.style.opacity = Math.max(0, Math.min(1, goalOpacity));
+let num_cards = cards.length;
 
-//         // 카드 순차 애니메이션
-//         cardItems.forEach((card, index) => {
-//             // 각 카드별 표시 구간
-//             const cardStart = 0.30 + (index * 0.20);
-//             const cardEnd = cardStart + 0.18;
-//             const cardFadeOut = cardEnd + 0.08;
+gsap.set(".section01 .title", {
+    opacity: 0,
+    scale: 2
+});
+// gsap.set(".section01 .card", {
+//     xPercent: -50,
+//     yPercent: -50,
+// });
 
-//             if (progress >= cardStart && progress < cardEnd) {
-//                 // 나타나는 구간
-//                 card.classList.add('active');
-//                 card.classList.remove('fade-out');
-//             } else if (progress >= cardEnd && progress < cardFadeOut) {
-//                 // 사라지는 구간
-//                 card.classList.remove('active');
-//                 card.classList.add('fade-out');
-//             } else {
-//                 // 초기 상태
-//                 card.classList.remove('active', 'fade-out');
-//             }
-//         });
-//     }
 
-//     // 스크롤 이벤트 리스너
-//     window.addEventListener('scroll', updateAnimations, { passive: true });
-//     updateAnimations(); // 초기 실행
-// }
+method
+.to({}, { duration: 0.2 })
+// 사업 분야 글자가 나타남
+.to(".section01 .title", {
+    opacity: 1,
+    duration: 1
+})
 
-// if (document.readyState === 'loading') {
-//     document.addEventListener('DOMContentLoaded', initManagementScrollAnimation);
-// } else {
-//     initManagementScrollAnimation();
-// }
+.to({}, { duration: 0.2 })
+// 사업 분야 글자가 이동
+.to(".section01 .title", {
+    // left: "25%",
+    top: "87%",
+    scale: 1,
+    duration: 2,
+    opacity: 0.5,
+    ease: "back.out(0.5)"
+})
+
+.to({}, { duration: 0.2 })
+
+// 전체 박스 생김
+.from(".section01 .card1",
+    {
+        opacity: 0,
+        duration: 0
+    })
+
+.to({}, { duration: 0.2 })
+// 첫 번째 사진이 먼저 등장
+.from(".section01 .card1 .reveal2", {
+    xPercent: 100,
+    opacity: 0,
+    scale: 0.95,
+    duration: 1.2,
+    ease: "power1.out"
+});
+
+//반복문으로 구성
+cards.forEach((card, index) => {
+    console.log(card);
+    let next_card = cards[index + 1];
+
+    method
+    //설명하는 글자들 올라옴
+    .from(card.querySelectorAll(".reveal1"), {
+        y: 30,
+        opacity: 0,
+        scale: 0.98,
+        duration: 1.5,
+        stagger: 0.5
+    })
+
+    .to({}, { duration: 0.3 })
+    
+    //카드 사라지는 모션
+    .to(card, {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1
+    }, `changecard${index}`)
+
+    if (!next_card) return;
+    // 다음 전체 박스 생김
+    method
+    .from(next_card, {
+        opacity: 0,
+        duration: 0
+    }, `changecard${index}`)
+    // 다음 사진이 등장
+    .from(next_card.querySelectorAll(".reveal2"), {
+        xPercent: 100,
+        opacity: 0,
+        scale: 0.95,
+        duration: 1.2,
+        ease: "power1.out"
+    }, `changecard${index}`);
+
+});
+
+
+// 동시에 글자도 사라짐
+method
+.to(".section01 .title", {
+    scale: 0.9,
+    duration: 0.5,
+    opacity: 0
+}, `changecard${num_cards-1}`)
+
+.to({}, { duration: 0.7 });
+
+
+ScrollTrigger.create({
+    animation: method,
+    trigger: ".section01",
+    start: 'top top',
+    end: `+=${1000 + 2100 * num_cards}`,
+    scrub: 2,
+    pin: true,
+    anticipatePin: 1,
+    // markers: true
+});
+
+
+
+// mm.add("(min-width: 769px)", () => {
+//     //PC에서만 실행
+
+//     ScrollTrigger.create({
+//         animation: method,
+//         trigger: ".section01",
+//         start: 'top top',
+//         end: '+=8500',
+//         scrub: 2,
+//         pin: true,
+//         anticipatePin: 1,
+//         markers: true
+//     });
+// });
+
+
+
+// mm.add("(max-width: 768px)", () => {
+//     // 모바일에서만 실행
+    
+//     });
+
+
+// });
+
+// 회사 정보 부분 모션
+const info = gsap.timeline();
+
+info
+.from(".section02 div h2, .section02 div h3, .section02 div p", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    stagger: 0.2
+})
+.to({}, {
+    duration: 3
+})
+// .to(".section02 div h2, .section02 div h3, .section02 div p", {
+//     opacity: 0,
+//     y: -10,
+//     duration: 1.8
+// })
+// .to({}, {
+//     duration: 0.5
+// })
+
+ScrollTrigger.create({
+    animation: info,
+    trigger: ".section02",
+    start: 'top top',
+    end: '+=950',
+    scrub: 2,
+    pin: true,
+    anticipatePin: 1,
+    // markers: true
+});
+
+
+

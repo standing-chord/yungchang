@@ -16,26 +16,26 @@ body {
     background-color: #f4f7f6;
 }
 
+
 /* 회사 연혁 글자 */
 .section10 div {
     height: 100vh;
     max-width: 900px;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.5s ease, transform 3s ease;
+    /* opacity: 0; */
+    /* transform: translateY(40px); */
+    /* transition: opacity 1.5s ease, transform 3s ease; */
 }
-
+/* 
 .section10 div.show {
     opacity: 0.8;
     transform: translateY(0);
-}
+} */
 
 .section10 div h2 {
     text-align: center;
@@ -75,7 +75,7 @@ body {
     background: linear-gradient(
         to bottom, 
         rgba(0, 166, 219, 0),
-        var(--primary-color) 2%, 
+        var(--primary-color) 5%, 
         var(--primary-color) 40%, 
         rgba(0, 166, 219, 0)
     );
