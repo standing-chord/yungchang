@@ -183,7 +183,7 @@ ScrollTrigger.create({
     animation: method,
     trigger: ".section01",
     start: 'top top',
-    end: `+=${1000 + 2050 * num_cards}`,
+    end: () => window.innerWidth < 768 ? `+=${1200 + 3000 * num_cards}` : `+=${1000 + 2050 * num_cards}`,
     scrub: 2,
     pin: true,
     anticipatePin: 1,
