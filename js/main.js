@@ -50,7 +50,8 @@ intro
     y: -10,
     duration: 1.8,
 })
-.to({}, { duration: 0.7 })
+// 다음꺼 전에 잠깐 기다리기 waiting
+.to({}, { duration: 0.65 })
 
 ScrollTrigger.create({
     animation: intro,
@@ -137,7 +138,8 @@ cards.forEach((card, index) => {
         stagger: 0.5
     })
 
-    .to({}, { duration: 0.3 })
+    // 한 챕터에 머무르는 시간
+    .to({}, { duration: 1.1 })
     
     //카드 사라지는 모션
     .to(card, {
@@ -173,14 +175,15 @@ method
     opacity: 0
 }, `changecard${num_cards-1}`)
 
-.to({}, { duration: 0.7 });
+// 다음꺼 전에 잠깐 기다리기 waiting
+.to({}, { duration: 0.65 });
 
 
 ScrollTrigger.create({
     animation: method,
     trigger: ".section01",
     start: 'top top',
-    end: `+=${1000 + 2000 * num_cards}`,
+    end: `+=${1000 + 2050 * num_cards}`,
     scrub: 2,
     pin: true,
     anticipatePin: 1,
@@ -192,15 +195,6 @@ ScrollTrigger.create({
 // mm.add("(min-width: 769px)", () => {
 //     //PC에서만 실행
 
-//     ScrollTrigger.create({
-//         animation: method,
-//         trigger: ".section01",
-//         start: 'top top',
-//         end: '+=8500',
-//         scrub: 2,
-//         pin: true,
-//         anticipatePin: 1,
-//         markers: true
 //     });
 // });
 
@@ -224,9 +218,7 @@ info
     duration: 1,
     stagger: 0.2
 })
-.to({}, {
-    duration: 3
-})
+.to({}, { duration: 3 })
 // .to(".section02 div h2, .section02 div h3, .section02 div p", {
 //     opacity: 0,
 //     y: -10,
