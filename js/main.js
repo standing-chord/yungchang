@@ -51,7 +51,7 @@ intro
     duration: 1.8,
 })
 // 다음꺼 전에 잠깐 기다리기 waiting
-.to({}, { duration: 0.65 })
+.to({}, { duration: 0.8 })
 
 ScrollTrigger.create({
     animation: intro,
@@ -186,7 +186,7 @@ method
 }, `changecard${num_cards-1}`)
 
 // 다음꺼 전에 잠깐 기다리기 waiting
-.to({}, { duration: 0.65 });
+.to({}, { duration: 0.8 });
 
 
 ScrollTrigger.create({
@@ -229,15 +229,7 @@ info
     duration: 1,
     stagger: 0.2
 })
-.to({}, { duration: 3 })
-// .to(".section02 div h2, .section02 div h3, .section02 div p", {
-//     opacity: 0,
-//     y: -10,
-//     duration: 1.8
-// })
-// .to({}, {
-//     duration: 0.5
-// })
+.to({}, { duration: 0.8 })
 
 ScrollTrigger.create({
     animation: info,

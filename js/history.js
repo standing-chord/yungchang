@@ -1,10 +1,12 @@
 gsap.registerPlugin(ScrollTrigger);
 
-const historyLetter = document.querySelector('.section10 div');
+const historyLetterWrap = document.querySelector('.section10 .meet-letter-wrap');
+const historyLetter = document.querySelector('.section10 .meet-letter-wrap .meet-letter');
 
-if (historyLetter) {
+console.log(historyLetterWrap)
+if (historyLetterWrap && historyLetter) {
     // 처음 로딩 애니메이션 회사 연혁 글자 나타남
-    gsap.fromTo(historyLetter,
+    gsap.fromTo(historyLetterWrap,
         {
             opacity: 0,
             y: 10
@@ -14,23 +16,19 @@ if (historyLetter) {
             y: 0,
             duration: 2,
             ease: 'power1.inOut',
-
-            onComplete: () => {
-                // 로딩 애니메이션 끝난 뒤 스크롤 애니메이션 등록
-                gsap.to(historyLetter, {
-                    opacity: 0,
-                    ease: 'power1.out',
-                    scrollTrigger: {
-                        trigger: '.section11',
-                        start: 'top 95%',
-                        end: 'top 50%',
-                        scrub: 2,
-                        // markers: true
-                    }
-                });
-            }
+        });
+        
+    // 스크롤을 하는 경우는 글자가 사라지도록
+    gsap.to(historyLetter, {
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '.section11',
+            start: 'top 95%',
+            end: 'top 60%',
+            scrub: true,
+            // markers: true
         }
-    );
+    });
 }
 
 
@@ -58,17 +56,17 @@ years.forEach((oneyear) => {
 });
 
 // 설명에 대한 애니메이션
-const years_words = document.querySelectorAll('.oneyear p');
+const yearsWords = document.querySelectorAll('.oneyear p');
 
-years_words.forEach((oneyear) => {
-    gsap.from(oneyear, {
+yearsWords.forEach((yearsWord) => {
+    gsap.from(yearsWord, {
         y: 30,
         scale: 0.98,
         opacity: 0,
         duration: 0.8,
 
         scrollTrigger: {
-            trigger: oneyear,
+            trigger: yearsWord,
             start: 'top 90%',
             end: 'bottom 60%',
             scrub: 2,
