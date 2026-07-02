@@ -66,18 +66,35 @@ body {
 }
 
 .section21 .map-explanation {
+    width: min(90%, 900px);
     margin-bottom: 3rem;
     color: var(--light-gray);
+    /* border: 1px solid purple; */
+    text-align: center;
 }
 
 
 /* 맨 아래의 연락처 */
 .section22 {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding: 3rem 0; */
+    padding: 3rem 0 6rem;
     /* gap: 3rem; */
+}
+
+
+.section22 div h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--gray);
+    /* border: 1px solid blueviolet; */
+}
+
+.section22 div p {
+    text-align: center;
+    color: var(--light-gray);
 }

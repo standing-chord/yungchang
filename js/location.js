@@ -39,9 +39,10 @@ const mapContainers = document.querySelectorAll('.map-container');
 mapContainers.forEach((mapContainer) => {
     gsap.from(mapContainer, {
         // y: 30,
-        scale: 0.98,
+        scale: 0.95,
         opacity: 0,
         duration: 0.8,
+        // xPercent: 100,
 
         scrollTrigger: {
             trigger: mapContainer,
@@ -73,4 +74,22 @@ mapsWords.forEach((mapsWord) => {
     });
 });
 
+// 지도 파트 아래 연락처에 대한 애니메이션
+const call = document.querySelectorAll('.section22 div h3, .section22 div p');
+
+gsap.from(call, {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    stagger: 0.2,
+
+    scrollTrigger: {
+        trigger: '.section22',
+        start: '80% bottom',
+        // end: 'bottom 60%',
+        // scrub: true,
+        toggleActions: "play none none reverse",
+        // markers: true
+    }
+});
 
