@@ -42,16 +42,16 @@ body {
     position: relative;
     /* height: 5000px; */
     /* border: 3px solid red; */
-    padding-bottom: 40px;
+    padding: 4rem 0 40px;
 }
 
 /* 길쭉한 세로 라인 */
 .section31 .hider {
     position: absolute;
-    top: 0;
+    top: 4rem;
     bottom: 0;
     /* 세로 라인이 존재하는 위치 */
-    left: calc(50% - min(80%, 900px)/2 - 12px);
+    left: calc(50% - min(80%, 750px)/2 - 15px);
     /* height: 100%; */
     overflow: hidden;
     /* border: 2px solid peru; */
@@ -73,7 +73,7 @@ body {
 }
 
 .section31 .ceos-greeting {
-    width: min(80%, 900px);
+    width: min(80%, 750px);
     margin: 0 auto 12rem;
     text-align: left;
     color: var(--light-gray);
@@ -87,7 +87,8 @@ body {
 }
 
 .section31 .ceos-greeting p:first-child {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    font-weight: 450;
     color: var(--gray);
 }
 
