@@ -1,6 +1,5 @@
 :root {
     --primary-color: rgb(0, 166, 219);
-    --gray: rgb(74, 74, 74);
     --light-gray: rgb(121, 127, 133);
 }
 
@@ -97,23 +96,26 @@ body {
 }
 
 /* 섹션 00 */
-.section00 div {
+.section00 {
     height: 100vh;
-    max-width: 900px;
-    margin: 0 auto;
-    /* border: 2px solid blueviolet; */
-
     display: flex;
+
+    border: 1px solid red;
+}
+.section00 div {
+    max-width: 900px;
+    border: 2px solid blueviolet;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: auto auto;
+
 }
 
 .section00 div h2 {
     margin: 1rem auto;
     text-align: center;
     font-size: 1.7rem;
-    color: var(--gray);
 }
 
 .section00 div p {
@@ -149,18 +151,18 @@ body {
     /* border: 1px solid black; */
 }
 
-.section01 .title h2 {
+.section01 .title h1 {
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--gray);
-    font-size: 1.7rem;
+    color: var(--light-gray);
+    font-size: 1.5rem;
 }
 
-/* .section01 .title h2 {
+.section01 .title h2 {
     text-align: center;
     color: var(--primary-color);
     font-weight: 600;
-} */
+}
 
 .section01 .card {
     /* border: 2px solid black; */
@@ -233,7 +235,7 @@ body {
     margin: 1.5rem 0 0.5rem;
     text-align: center;
     font-size: 1.3rem;
-    color: var(--gray);
+    color: #3e3e3e
 }
 
 .section02 div p {

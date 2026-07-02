@@ -35,34 +35,65 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 // 인트로 부분 모션
-const intro = gsap.timeline();
+// const intro = gsap.timeline();
+const section00 = document.querySelector('.section00');
+const intro = document.querySelector('.section00 div');
 
-intro
-.from('.section00 div', {
-    opacity: 0,
+gsap.from(intro, {
+    opacity:0,
     y: 20,
-    duration: 1
-})
-.to({}, { duration: 0.2 })
+    duration: 1,
 
-.to('.section00 div', {
-    opacity: 0,
-    y: -10,
-    duration: 1.8,
+    scrollTrigger: {
+        trigger: intro,
+        start: 'top 85%',
+        end: 'bottom 50%',
+        scrub: 5,
+        markers: true
+    }
 })
-// 다음꺼 전에 잠깐 기다리기 waiting
-.to({}, { duration: 0.65 })
 
-ScrollTrigger.create({
-    animation: intro,
-    trigger: ".section00",
-    start: 'top top',
-    end: '+=1800',
-    scrub: 2,
-    pin: true,
-    anticipatePin: 1,
-    // markers: true
-});
+// const intro = document.querySelector('.section11 .hider');
+
+// gsap.from(intro, {
+//     height: 0,
+//     ease: 'power1.out',
+
+//     scrollTrigger: {
+//         trigger: '.section11',
+//         start: 'top 50%',
+//         end: 'bottom bottom',
+//         scrub: 2,
+//         // markers: true
+//     }
+// });
+// intro
+// .from('.section00 div', {
+//     opacity: 0,
+//     y: 20,
+//     duration: 1
+// })
+// // .to({}, { duration: 0.2 })
+
+// .to('.section00 div', {
+//     opacity: 0,
+//     y: -10,
+//     duration: 1.8,
+// })
+// // 다음꺼 전에 잠깐 기다리기 waiting
+// // .to({}, { duration: 0.65 })
+
+// ScrollTrigger.create({
+//     animation: intro,
+//     trigger: ".section00",
+//     start: 'top 70%',
+//     end: 'bottom 30%',
+//     // end: '+=1800',
+//     // scrub: 2,
+//     // pin: true,
+//     // anticipatePin: 1,
+//     markers: true
+// });
 
 
 
@@ -71,13 +102,13 @@ ScrollTrigger.create({
 const mm = gsap.matchMedia();
 const method = gsap.timeline();
 
-const title = document.querySelector('.section01 .title')
 const cards = document.querySelectorAll(".section01 .card");
 
 let num_cards = cards.length;
 
 gsap.set(".section01 .title", {
-    opacity: 0
+    opacity: 0,
+    scale: 2
 });
 // gsap.set(".section01 .card", {
 //     xPercent: -50,
@@ -90,18 +121,18 @@ method
 // 사업 분야 글자가 나타남
 .to(".section01 .title", {
     opacity: 1,
-    duration: 1.5
+    duration: 1
 })
 
-.to({}, { duration: 0.5 })
-// 사업 분야 글자가 사라짐
+.to({}, { duration: 0.2 })
+// 사업 분야 글자가 이동
 .to(".section01 .title", {
     // left: "25%",
-    // top: "87%",
-    // scale: 1,
-    duration: 1.5,
-    opacity: 0,
-    // ease: "back.out(0.5)"
+    top: "87%",
+    scale: 1,
+    duration: 2,
+    opacity: 0.5,
+    ease: "back.out(0.5)"
 })
 
 .to({}, { duration: 0.2 })
@@ -142,23 +173,13 @@ cards.forEach((card, index) => {
     .to({}, { duration: 1.1 })
     
     //카드 사라지는 모션
-    // .to(card, {
-    //     opacity: 0,
-    //     scale: 0.9,
-    //     duration: 1
-    // }, `changecard${index}`)
-
-    //카드가 왼쪽으로 슬라이딩하며 사라지는 모션
     .to(card, {
-        xPercent: -100,
         opacity: 0,
-        // scale: 0.9,
-        duration: 1.3,
-        ease: "power1.out"
+        scale: 0.9,
+        duration: 1
     }, `changecard${index}`)
 
-    if (!next_card) return; // 뒤 카드가 없으면 반복문 종료
-
+    if (!next_card) return;
     // 다음 전체 박스 생김
     method
     .from(next_card, {
@@ -169,8 +190,8 @@ cards.forEach((card, index) => {
     .from(next_card.querySelectorAll(".reveal2"), {
         xPercent: 100,
         opacity: 0,
-        // scale: 0.95,
-        duration: 1.3,
+        scale: 0.95,
+        duration: 1.2,
         ease: "power1.out"
     }, `changecard${index}`);
 
@@ -193,8 +214,7 @@ ScrollTrigger.create({
     animation: method,
     trigger: ".section01",
     start: 'top top',
-    end: `+=${1000 + 2200 * num_cards}`,
-    // end: () => window.innerWidth < 768 ? `+=${1200 + 4500 * num_cards}` : `+=${1000 + 2200 * num_cards}`,
+    end: () => window.innerWidth < 768 ? `+=${1200 + 3000 * num_cards}` : `+=${1000 + 2050 * num_cards}`,
     scrub: 2,
     pin: true,
     anticipatePin: 1,
@@ -202,22 +222,6 @@ ScrollTrigger.create({
 });
 
 
-
-// mm.add("(min-width: 769px)", () => {
-//     //PC에서만 실행
-
-//     });
-// });
-
-
-
-// mm.add("(max-width: 768px)", () => {
-//     // 모바일에서만 실행
-    
-//     });
-
-
-// });
 
 // 회사 정보 부분 모션
 const info = gsap.timeline();

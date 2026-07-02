@@ -119,6 +119,7 @@ nav ul li a:hover::after {
     padding: 0.5rem;
     opacity: 0.8;
     transition: opacity 0.3s ease;
+    /* border: 1px solid red; */
 }
 
 .mobile-menu:hover {
@@ -137,6 +138,21 @@ nav ul li a:hover::after {
     border-radius: 1px;
     background-color: white;
     margin: 5px 0;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 모바일 메뉴를 누르면 곱표 모양으로 바꾸기 */
+.mobile-menu span:first-child.x {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.mobile-menu span:nth-child(2).x {
+    opacity: 0;
+}
+
+.mobile-menu span:last-child.x {
+    transform: translateY(-8px) rotate(45deg);
 }
 
 .mobile-nav {

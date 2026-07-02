@@ -1,5 +1,6 @@
 :root {
     --primary-color: rgb(0, 166, 219);
+    --gray: rgb(74, 74, 74);
     --light-gray: rgb(121, 127, 133);
 }
 
@@ -40,6 +41,7 @@ body {
 .section10 div h2 {
     text-align: center;
     font-size: 1.7rem;
+    color: var(--gray);
 }
 
 /* 본격적으로 연혁이 나오는 부분 */
