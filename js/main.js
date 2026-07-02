@@ -24,8 +24,8 @@ if (slides.length > 1 && slides.length == slideTexts.length) {
     } else {
         animateInitialText();
     }
-
-    setInterval(nextSide, 5000);
+    // 첫 화면이 바뀌는 시간
+    setInterval(nextSide, 6000);
 }
 
 
@@ -141,7 +141,7 @@ cards.forEach((card, index) => {
     // 한 챕터에 머무르는 시간
     .to({}, { duration: 1.1 })
     
-    //카드 사라지는 모션
+    //카드가 작아지며 opacity 감소하며 사라지는 모션
     // .to(card, {
     //     opacity: 0,
     //     scale: 0.9,
@@ -151,10 +151,15 @@ cards.forEach((card, index) => {
     //카드가 왼쪽으로 슬라이딩하며 사라지는 모션
     .to(card, {
         xPercent: -100,
-        opacity: 0,
+        // opacity: 0,
         // scale: 0.9,
-        duration: 1.3,
-        ease: "power1.out"
+        duration: 1.7,
+        ease: "power2.out"
+    }, `changecard${index}`)
+    .to(card, {
+        opacity: 0,
+        duration: 1.2,
+        // ease: "power2.out"
     }, `changecard${index}`)
 
     if (!next_card) return; // 뒤 카드가 없으면 반복문 종료
@@ -170,7 +175,7 @@ cards.forEach((card, index) => {
         xPercent: 100,
         opacity: 0,
         // scale: 0.95,
-        duration: 1.3,
+        duration: 1.7,
         ease: "power1.out"
     }, `changecard${index}`);
 

@@ -32,8 +32,41 @@ if (partnerLetterWrap && partnerLetter) {
 }
 
 
-
 //아래 부분 애니메이션 만들기
 
 
+// 세로 선에 대한 애니메이션
+// 특정 위치에 도달하면 애니메이션이 재생되도록 함
+const hider = document.querySelector('.section31 .hider');
 
+gsap.from(hider, {
+    height: 0,
+    ease: 'power1.out',
+    duration: 1,
+
+    scrollTrigger: {
+        trigger: '.section31',
+        start: 'top 60%',
+        toggleActions: "play none none reverse",
+        // markers: true
+    }
+});
+
+
+// 글자들에 대한 애니메이션
+// 특정 위치에 도달하면 애니메이션이 재생되도록 함
+const ceosGreeting = document.querySelectorAll('.ceos-greeting p');
+
+gsap.from(ceosGreeting, {
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    stagger: 0.2,
+
+    scrollTrigger: {
+        trigger: '.section31',
+        start: 'top 70%',
+        toggleActions: "play none none reverse",
+        // markers: true
+    }
+});

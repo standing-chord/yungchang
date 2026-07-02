@@ -4,7 +4,7 @@ const locationLetterWrap = document.querySelector('.section20 .meet-letter-wrap'
 const locationLetter = document.querySelector('.section20 .meet-letter-wrap .meet-letter');
 
 if (locationLetterWrap && locationLetter) {
-    // 처음 로딩 애니메이션 오시는 갈 글자 나타남
+    // 처음 로딩 애니메이션 오시는 길 글자 나타남
     gsap.fromTo(locationLetterWrap,
         {
             opacity: 0,
@@ -54,7 +54,7 @@ mapContainers.forEach((mapContainer) => {
     });
 });
 
-// 지도 밑 글자에 대한 애니메이션
+// 지도를 설명하는 글자에 대한 애니메이션
 const mapsWords = document.querySelectorAll('.map-explanation');
 
 mapsWords.forEach((mapsWord) => {
@@ -75,6 +75,8 @@ mapsWords.forEach((mapsWord) => {
 });
 
 // 지도 파트 아래 연락처에 대한 애니메이션
+// 특정 파트에 도달하면 애니메이션이 재생되도록 함
+
 const call = document.querySelectorAll('.section22 div h3, .section22 div p');
 
 gsap.from(call, {

@@ -66,14 +66,17 @@ body {
     display: grid;
     place-content: center;
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease-out, transform 2s ease-out;
+    transform: translateY(20px);
+    /* 사라지는 속도 */
+    transition: opacity 0.5s ease-out, transform 1.2s ease-out;
     /* backdrop-filter: blur(8px); */
 }
 
 .slide-text.active {
     opacity: 1;
     transform: translateY(0);
+    /* 등장 속도 */
+    transition: opacity 1s ease-out , transform 1.2s ease-out;
 }
 
 .slide-text h1 {
@@ -177,10 +180,12 @@ body {
 }
 
 .section01 .card .words {
-    width: min(90%, 1200px);
+    /* 카드의 글자부분의 폭. 아래의 .works-picture-box의 폭과 맞추어야 함 */
+    width: 80%;
     margin-left: auto;
     display: flex;
     flex-direction: column;
+    /* border: 1px solid red; */
 }
 
 .section01 .card h3 {
@@ -195,12 +200,14 @@ body {
     /* border-top: 1px solid rgba(121, 127, 133, 0.25); */
 }
 
+/* 카드부분의 사진을 담는 박스 */
 .section01 .card .works-picture-box {
     overflow: hidden;
     /* border: 1px solid red; */
-    width: min(90%, 1200px);
+    width: 80%;
+    /* width: min(90%, 1200px); */
     margin-left: auto;
-    height: 350px;
+    height: 400px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -243,6 +250,15 @@ body {
 }
 
 
+@media (max-width: 768px) {
+    .section01 .card .words {
+        width: 90%;
+    }
+
+    .section01 .card .works-picture-box {
+    width: 90%;
+    }
+}
 
 
 
